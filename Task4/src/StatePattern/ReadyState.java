@@ -16,6 +16,7 @@ public class ReadyState implements State{
 
     @Override
     public void loadText(String text) {
+        toPrint = text;
     }
 
     @Override

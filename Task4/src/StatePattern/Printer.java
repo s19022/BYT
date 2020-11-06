@@ -20,10 +20,19 @@ public class Printer {
     }
 
     public void loadText(String text){
-        state.loadText(text);
+        try{
+            state.loadText(text);
+        }catch (Exception ex){
+            System.err.println(ex.getMessage());
+        }
     }
 
     public void print(){
-        state.print();
+        try{
+            state.print();
+        }catch (Exception ex){
+            System.err.println(ex.getMessage());
+        }
+
     }
 }

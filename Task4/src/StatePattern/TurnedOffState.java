@@ -14,12 +14,12 @@ public class TurnedOffState implements State{
     }
 
     @Override
-    public void loadText(String text) {
-
+    public void loadText(String text) throws Exception{
+        throw new Exception("Printer is turned off");
     }
 
     @Override
-    public void print() {
-
+    public void print() throws Exception{
+        throw new Exception("Printer is turned off");
     }
 }

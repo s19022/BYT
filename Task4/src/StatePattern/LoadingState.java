@@ -19,8 +19,8 @@ public class LoadingState implements State {
     }
 
     @Override
-    public void print() {
-
+    public void print() throws Exception{
+        throw new Exception("Printer is loading");
     }
 
 }
