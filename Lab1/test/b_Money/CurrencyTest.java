@@ -2,13 +2,13 @@ package b_Money;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CurrencyTest {
 	Currency SEK, DKK, NOK, EUR;
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		/* Setup currencies with exchange rates */
 		SEK = new Currency("SEK", 0.15);
@@ -18,27 +18,50 @@ public class CurrencyTest {
 
 	@Test
 	public void testGetName() {
-		fail("Write test case here");
+		assertEquals("SEK", SEK.getName());
+		assertEquals("DKK", DKK.getName());
+		assertEquals("EUR", EUR.getName());
 	}
 	
 	@Test
 	public void testGetRate() {
-		fail("Write test case here");
+		assertEquals(new Double(0.15), new Double(SEK.getRate()));
+		assertEquals(new Double(0.20), new Double(DKK.getRate()));
+		assertEquals(new Double(1.5), new Double(EUR.getRate()));
+
 	}
 	
 	@Test
 	public void testSetRate() {
-		fail("Write test case here");
+		SEK.setRate(0.1566);
+		DKK.setRate(0.2066);
+		EUR.setRate(1.566);
+		assertEquals(new Double(0.1566), new Double(SEK.getRate()));
+		assertEquals(new Double(0.2066), new Double(DKK.getRate()));
+		assertEquals(new Double(1.566), new Double(EUR.getRate()));
 	}
 	
 	@Test
-	public void testGlobalValue() {
-		fail("Write test case here");
+	public void testUniversalValue() {
+		assertEquals(15, SEK.universalValue(100));
+		assertEquals(20, DKK.universalValue(102));
+		assertEquals(30, EUR.universalValue(20));
 	}
 	
 	@Test
 	public void testValueInThisCurrency() {
-		fail("Write test case here");
+		assertEquals(567, SEK.valueInThisCurrency(567, SEK));
+		assertEquals(33, SEK.valueInThisCurrency(45, DKK));
+		assertEquals(76, SEK.valueInThisCurrency(760, EUR));
+
+
+		assertEquals(45, DKK.valueInThisCurrency(34, SEK));
+		assertEquals(634, DKK.valueInThisCurrency(634, DKK));
+		assertEquals(3, DKK.valueInThisCurrency(23, EUR));
+
+		assertEquals(6540, EUR.valueInThisCurrency(654, SEK));
+		assertEquals(4590, EUR.valueInThisCurrency(612, DKK));
+		assertEquals(3478, EUR.valueInThisCurrency(3478, EUR));
 	}
 
 }

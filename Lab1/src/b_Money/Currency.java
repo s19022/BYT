@@ -2,7 +2,7 @@ package b_Money;
 
 public class Currency {
 	private String name;
-	private Double rate;
+	private double rate;
 	
 	/**
 	 * New Currency
@@ -13,7 +13,7 @@ public class Currency {
 	 * @param name The name of this Currency
 	 * @param rate The exchange rate of this Currency
 	 */
-	Currency (String name, Double rate) {
+	Currency (String name, double rate) {
 		this.name = name;
 		this.rate = rate;
 	}
@@ -24,43 +24,39 @@ public class Currency {
 	 * @param amount An amount of cash of this currency.
 	 * @return The value of amount in the "universal currency"
 	 */
-	public Integer universalValue(Integer amount) {
-		//ToDO
-       return null;
+	public int universalValue(int amount) {
+		return (int)(amount * rate);
 	}
 
 	/** Get the name of this Currency.
 	 * @return name of Currency
 	 */
 	public String getName() {
-		//TODO
-        return null;
+		return name;
 	}
 	
 	/** Get the rate of this Currency.
 	 * 
 	 * @return rate of this Currency
 	 */
-	public Double getRate() {
-		//TODO
-        return null;
+	public double getRate() {
+		return rate;
 	}
 	
 	/** Set the rate of this currency.
 	 * 
 	 * @param rate New rate for this Currency
 	 */
-	public void setRate(Double rate) {
-
+	public void setRate(double rate) {
+		this.rate = rate;
 	}
 	
 	/** Convert an amount from another Currency to an amount in this Currency
 	 * 
 	 * @param amount Amount of the other Currency
-	 * @param othercurrency The other Currency
+	 * @param otherCurrency The other Currency
 	*/
-	public Integer valueInThisCurrency(Integer amount, Currency othercurrency) {
-        //TODO
-        return null;
+	public int valueInThisCurrency(int amount, Currency otherCurrency) {
+        return (int)(amount * rate / otherCurrency.getRate());
 	}
 }
