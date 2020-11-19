@@ -2,8 +2,9 @@ package a_Introductory;
 
 
 import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LineTest {
 	Point p1, p2;
@@ -26,7 +27,7 @@ public class LineTest {
 	public void testLength() {
 		assertEquals(10.0498756, l1.getLength(), 0.0001);
 		assertEquals(10.0498756, l2.getLength(), 0.0001);
-		assertTrue("l1 should have same length as l2", l1.isSameLengthAs(l2));
+		assertTrue(l1.isSameLengthAs(l2), "l1 should have same length as l2");
 	}
 
 }

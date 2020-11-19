@@ -1,9 +1,9 @@
 package b_Money;
 
 import static org.junit.Assert.*;
-
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 public class MoneyTest {
 	Currency SEK, DKK, NOK, EUR;

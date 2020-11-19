@@ -1,9 +1,10 @@
 package a_Introductory;
 
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.Assert.*;
 
-import org.junit.Before;
-import org.junit.Test;
 
 public class QuadrilateralTest {
 	Quadrilateral square1, square2, rectangle1, rectangle2, quad;
