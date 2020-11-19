@@ -1,14 +1,14 @@
 package a_Introductory;
 
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 
 public class Vector2DTest {
 	Vector2D v1, v2, v3;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		/* v1 and v3 are orthogonal, v1 and v2 aren't. */
 		v1 = new Vector2D(-2, 4);

@@ -1,7 +1,7 @@
 package a_Introductory;
 
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,7 +12,7 @@ public class LineTest {
 	Line l1;
 	Line l2;
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		p1 = new Point(2, -3);
 		p2 = new Point(3, 7);

@@ -1,6 +1,6 @@
 package a_Introductory;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class QuadrilateralTest {
 	Quadrilateral square1, square2, rectangle1, rectangle2, quad;
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		/* Set up two squares,
 		 * two rectangles that are not squares,
