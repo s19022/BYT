@@ -1,6 +1,6 @@
 package b_Money;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 
@@ -11,34 +11,35 @@ public class AccountTest {
 	Bank SweBank;
 	Account testAccount;
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		SEK = new Currency("SEK", 0.15);
 		SweBank = new Bank("SweBank", SEK);
 		SweBank.openAccount("Alice");
 		testAccount = new Account("Hans", SEK);
-		testAccount.deposit(new Money(10000000, SEK));
+		testAccount.deposit(new Money(10000_00, SEK));
 
-		SweBank.deposit("Alice", new Money(1000000, SEK));
+		SweBank.deposit("Alice", new Money(10000_00, SEK));
 	}
 	
 	@Test
-	public void testAddRemoveTimedPayment() {
-		fail("Write test case here");
+	public void testAddRemoveTimedPayment() throws Exception{
+		testAccount.addTimedPayment("payment1", 100, 0, new Money(10_00, SEK), SweBank, "Alice");
+		testAccount.removeTimedPayment("payment1");
+		assertFalse(testAccount.timedPaymentExists("payment"));
 	}
 	
 	@Test
 	public void testTimedPayment() throws AccountDoesNotExistException {
-		fail("Write test case here");
+		testAccount.addTimedPayment("payment1", 100, 3, new Money(10_00, SEK), SweBank, "Alice");
+		testAccount.addTimedPayment("payment2", 100, 1, new Money(200_00, SEK), SweBank, "Alice");
+		testAccount.tick();
+		assertEquals(10200_00, SweBank.getBalance("Alice"));
 	}
 
 	@Test
 	public void testAddWithdraw() {
-		fail("Write test case here");
-	}
-	
-	@Test
-	public void testGetBalance() {
-		fail("Write test case here");
+		testAccount.withdraw(new Money(2000_00, SEK));
+		assertEquals(new Money(8000_00, SEK), testAccount.getBalance());
 	}
 }
