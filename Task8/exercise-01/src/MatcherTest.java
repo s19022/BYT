@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MatcherTest {
@@ -17,9 +18,9 @@ public class MatcherTest {
 		assertTrue(matcher.match(expected, actual, clipLimit, delta));
 
 		actual = new int[] { 10, 60, 30, 98 };
-		assertTrue(!matcher.match(expected, actual, clipLimit, delta));
+		assertFalse(matcher.match(expected, actual, clipLimit, delta));
 
 		actual = new int[] { 10, 50, 30 };
-		assertTrue(!matcher.match(expected, actual, clipLimit, delta));
+		assertFalse(matcher.match(expected, actual, clipLimit, delta));
 	}
 }
