@@ -9,9 +9,23 @@ Exercise 2:
 	extracted a method "loadDuration" from "load"
 	extracted a method "loadDeparture" from "load"
 
-Execise 3:
+Exercise 3:
 	modified "testComplexExpression" for more readability
 	used Extract interface(kinda). Created IEvaluable interace and implementations for constant and operator expressions.
 	Bad-smells identified and not fixed:
 		creating an Enum for operators.
 		changing runtime exception to compile-time(as far as I know, it's conidered to be a bad idea to use runtime exception for situations which may occur without "ruining" something. In our case, "op" field may be any character)
+
+Exercise 4:
+	renamed variables last, middle, first to lastName, middleName, firstName
+	added getters for those variables
+	implemented "toString" method in class "Person"
+
+Exercise 5:
+	didn't understand what to do with that
+	
+Exercise 6:
+	used Extract class to move functionality of finding winner
+	used Extract method to split "suggestMove" method
+	Bad-smells identified and not fixed:
+		creating enum for 'X' and 'O' values
