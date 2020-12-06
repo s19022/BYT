@@ -1,7 +1,10 @@
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ConfigurationTest{
 
@@ -15,13 +18,13 @@ public class ConfigurationTest{
 		try {
 			props.load(input);
 		} catch (ConfigurationException e) {
-			assertTrue(false);
+			fail();
 			return;
 		}
 
-		assertEquals(props.interval, 10);
-		assertEquals(props.duration, 100);
-		assertEquals(props.departure, 200);
+		assertEquals(props.getInterval(), 10);
+		assertEquals(props.getDuration(), 100);
+		assertEquals(props.getDeparture(), 200);
 	}
 	@Test
 	public void testNegativeValues() throws IOException {
@@ -41,15 +44,14 @@ public class ConfigurationTest{
 	private void processBadInput(String data) throws IOException {
 		Properties input = loadInput(data);
 
-		boolean failed = false;
 		Configuration props = new Configuration();
 		try {
 			props.load(input);
 		} catch (ConfigurationException e) {
-			failed = true;
+			return;
 		}
 
-		assertTrue(failed);
+		fail();
 	}
 	@Test
 	private Properties loadInput(String data) throws IOException {

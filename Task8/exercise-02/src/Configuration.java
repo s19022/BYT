@@ -1,11 +1,23 @@
 import java.util.*;
 
 public class Configuration {
-	public int interval;
+	private int interval;
 
-	public int duration;
+	private int duration;
 
-	public int departure;
+	private int departure;
+
+	public int getInterval() {
+		return interval;
+	}
+
+	public int getDuration() {
+		return duration;
+	}
+
+	public int getDeparture() {
+		return departure;
+	}
 
 	public void load(Properties props) throws ConfigurationException {
 		String valueString;
