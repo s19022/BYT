@@ -20,24 +20,29 @@ public class Configuration {
 	}
 
 	public void load(Properties props) throws ConfigurationException {
-		String valueString;
-		int value;
+		loadInterval(props);
+		loadDuration(props);
+		loadDeparture(props);
+	}
 
-		valueString = props.getProperty("interval");
+	private void loadInterval(Properties props) throws ConfigurationException {
+		String valueString = props.getProperty("interval");
 		if (valueString == null) {
 			throw new ConfigurationException("monitor interval");
 		}
-		value = Integer.parseInt(valueString);
+		int value = Integer.parseInt(valueString);
 		if (value <= 0) {
 			throw new ConfigurationException("monitor interval > 0");
 		}
 		interval = value;
+	}
 
-		valueString = props.getProperty("duration");
+	private void loadDuration(Properties props) throws ConfigurationException {
+		String valueString = props.getProperty("duration");
 		if (valueString == null) {
 			throw new ConfigurationException("duration");
 		}
-		value = Integer.parseInt(valueString);
+		int value = Integer.parseInt(valueString);
 		if (value <= 0) {
 			throw new ConfigurationException("duration > 0");
 		}
@@ -45,18 +50,20 @@ public class Configuration {
 			throw new ConfigurationException("duration % interval");
 		}
 		duration = value;
+	}
 
-		valueString = props.getProperty("departure");
-		if (valueString == null) {
-			throw new ConfigurationException("departure offset");
-		}
-		value = Integer.parseInt(valueString);
-		if (value <= 0) {
-			throw new ConfigurationException("departure > 0");
-		}
-		if ((value % interval) != 0) {
-			throw new ConfigurationException("departure % interval");
-		}
+	private void loadDeparture(Properties props) throws ConfigurationException {
+		String valueString = props.getProperty("departure");
+
+		if (valueString == null) throw new ConfigurationException("departure offset");
+
+		int value = Integer.parseInt(valueString);
+
+		if (value <= 0) throw new ConfigurationException("departure > 0");
+
+		if ((value % interval) != 0) throw new ConfigurationException("departure % interval");
+
 		departure = value;
+
 	}
 }
