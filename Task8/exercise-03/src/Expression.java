@@ -1,38 +1,15 @@
 public class Expression {
-
-	private char op;
-
-	private Expression left;
-
-	private Expression right;
-
-	private int constant;
+	private IEvaluable evaluable;
 
 	public Expression(int constant) {
-		this.op = 'c';
-		this.constant = constant;
+		evaluable = new EvaluateConstant(constant);
 	}
 
 	public Expression(char op, Expression left, Expression right) {
-		this.op = op;
-		this.left = left;
-		this.right = right;
+		evaluable = new EvaluateOperator(op, left, right);
 	}
 
 	public int evaluate() {
-		switch (op) {
-		case 'c':
-			return constant;
-		case '+':
-			return left.evaluate() + right.evaluate();
-		case '-':
-			return left.evaluate() - right.evaluate();
-		case '*':
-			return left.evaluate() * right.evaluate();
-		case '/':
-			return left.evaluate() / right.evaluate();
-		default:
-			throw new IllegalStateException();
-		}
+		return evaluable.evaluate();
 	}
 }

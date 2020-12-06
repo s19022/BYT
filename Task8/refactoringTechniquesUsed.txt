@@ -1,3 +1,17 @@
 Exercise 1:
-	Created class Clipper and moved clipping functionalities from class Matcher
-	created function compareEachEntry in Matcher class and moved comparing in it
+	extracted a class "Clipper" and moved clipping functionalities from class Matcher
+	extracted a method "compareEachEntry" from "match" in Matcher class
+
+Exercise 2:
+	in class ConfigurationTest changed assertTrue(false) to fail()
+	changed accsess from pubic to private. Added getters
+	extracted a method "loadInterval" from "load"
+	extracted a method "loadDuration" from "load"
+	extracted a method "loadDeparture" from "load"
+
+Execise 3:
+	modified "testComplexExpression" for more readability
+	used Extract interface(kinda). Created IEvaluable interace and implementations for constant and operator expressions.
+	Bad-smells identified and not fixed:
+		creating an Enum for operators.
+		changing runtime exception to compile-time(as far as I know, it's conidered to be a bad idea to use runtime exception for situations which may occur without "ruining" something. In our case, "op" field may be any character)

@@ -1,4 +1,6 @@
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ExpressionTest {
 
@@ -33,11 +35,16 @@ public class ExpressionTest {
 	}
 	@Test
 	public void testComplexExpression() {
+		//1+2
+		Expression ex1 = new Expression('+', new Expression(1), new Expression(2));
+
+		//3*4
+		Expression ex2 = new Expression('*', new Expression(3), new Expression(4));
+
+		//3*4/5
+		Expression ex3 = new Expression('/', ex2, new Expression(5));
 		// 1+2-3*4/5
-		Expression e = new Expression('-', new Expression('+',
-				new Expression(1), new Expression(2)), new Expression('/',
-				new Expression('*', new Expression(3), new Expression(4)),
-				new Expression(5)));
+		Expression e = new Expression('-', ex1, ex3);
 		assertEquals(e.evaluate(), 1);
 	}
 
