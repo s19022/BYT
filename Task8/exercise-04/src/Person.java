@@ -1,13 +1,38 @@
 public class Person {
-	public String last;
+	private String lastName;
 
-	public String first;
+	private String firstName;
 
-	public String middle;
+	private String middleName;
 
-	public Person(String last, String first, String middle) {
-		this.last = last;
-		this.first = first;
-		this.middle = middle;
+
+	public Person(String lastName, String firstName, String middleName) {
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.middleName = middleName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb	.append(getLastName())
+				.append(", ")
+				.append(getFirstName());
+
+		if (getMiddleName() != null)
+			sb.append(" ").append(getMiddleName());
+		return sb.toString();
 	}
 }

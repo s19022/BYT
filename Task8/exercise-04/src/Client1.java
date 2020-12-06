@@ -4,13 +4,15 @@ import java.io.*;
 public class Client1 {
 
 	public static void printPerson(Writer out, Person person) throws IOException {
-		out.write(person.first);
-		out.write(" ");
-		if (person.middle != null) {
-			out.write(person.middle);
-			out.write(" ");
+		StringBuilder sb = new StringBuilder();
+		sb.append(person.getFirstName());
+		sb.append(" ");
+		if (person.getMiddleName() != null) {
+			sb.append(person.getMiddleName());
+			sb.append(" ");
 		}
-		out.write(person.last);
+		sb.append(person.getLastName());
+		out.write(sb.toString());
 	}
 
 }
