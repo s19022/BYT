@@ -1,0 +1,55 @@
+commit b815b82b8834230729ed74844dd471a9025d662f
+Author: Volodymyr Dovhyi <s19022@pjwstk.edu.pl>
+Date:   Wed Jan 6 16:31:23 2021 +0200
+
+    solved conflicts
+
+ SecondFile.txt.orig       | 6 ++++++
+ SecondFile_BACKUP_424.txt | 6 ++++++
+ SecondFile_BASE_424.txt   | 1 +
+ SecondFile_LOCAL_424.txt  | 2 ++
+ SecondFile_REMOTE_424.txt | 2 ++
+ 5 files changed, 17 insertions(+)
+
+commit bbbd17b15c555b7703733eff62d83083706ed208
+Merge: ae49f49 4f1cc58
+Author: Volodymyr Dovhyi <s19022@pjwstk.edu.pl>
+Date:   Wed Jan 6 16:26:43 2021 +0200
+
+    deleted auto generated text
+
+commit 4f1cc587ffd84bc0c9f52b90902e60f36bf95cdd
+Author: Volodymyr Dovhyi <s19022@pjwstk.edu.pl>
+Date:   Wed Jan 6 16:19:02 2021 +0200
+
+    modified SecondFile
+
+ SecondFile.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit ae49f49b12bd42334697daf485de4c2dbf937273
+Author: Volodymyr Dovhyi <s19022@pjwstk.edu.pl>
+Date:   Wed Jan 6 16:16:52 2021 +0200
+
+    modified secondFile
+
+ SecondFile.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit fdb303c4367c3de7472517d7586eec29013f433d
+Author: Volodymyr Dovhyi <s19022@pjwstk.edu.pl>
+Date:   Wed Jan 6 16:15:12 2021 +0200
+
+    created SecondFile
+
+ SecondFile.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit c50df867bb560cdf6e34f4cdacb7f022dc9b9e10
+Author: Volodymyr Dovhyi <s19022@pjwstk.edu.pl>
+Date:   Wed Jan 6 16:14:12 2021 +0200
+
+    created class Messages
+
+ Messages.java | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
